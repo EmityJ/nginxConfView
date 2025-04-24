@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nginx配置可视化工具</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 引入 echarts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Nginx配置可视化工具</h1>
+        <div class="upload-section">
+            <div class="drop-area" id="dropArea">
+                <p>将nginx.conf文件拖放到此处，或</p>
+                <label for="fileInput" class="upload-btn">选择文件</label>
+                <input type="file" id="fileInput" accept=".conf" hidden>
+            </div>
+        </div>
+        
+        <div class="visualization-container">
+            <!-- 可视化选项卡 -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="topology">服务拓扑图</button>
+                <button class="tab-btn" data-tab="routes">路由规则</button>
+                <button class="tab-btn" data-tab="servers">服务器配置</button>
+                <button class="tab-btn" data-tab="tree">树形结构</button>
+            </div>
+            
+            <!-- 可视化内容区域 -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="topology">
+                    <div id="topologyChart" class="chart-container"></div>
+                </div>
+                <div class="tab-pane" id="routes">
+                    <div id="routesChart" class="chart-container"></div>
+                </div>
+                <div class="tab-pane" id="servers">
+                    <div id="serversChart" class="chart-container"></div>
+                </div>
+                <div class="tab-pane" id="tree">
+                    <div id="configTree" class="config-tree"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details-section" id="detailsSection">
+            <h2>配置详情</h2>
+            <div id="configDetails" class="config-details"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
